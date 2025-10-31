@@ -1,0 +1,14 @@
+
+# Lean Canvas: LTI-Based Pre-Employment Skills Assessment Tool
+
+| Problem                                 | Solution                                                              | Key Metrics                               | Unique Value Proposition                                    |
+| --------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------------- |
+| - Recruiters struggle to efficiently assess the skills of a large number of job applicants.<br>- The process is often manual, time-consuming, and disconnected from the main recruitment workflow in the ATS.<br>- Lack of objective data to compare candidates. | - An LTI-compliant skills assessment tool that seamlessly integrates with popular Applicant Tracking Systems.<br>- Automates the sending of assessments and the collection of results directly within the ATS.<br>- Provides standardized, data-driven insights into candidate skills. | - Number of assessments completed per month.<br>- Number of active ATS integrations.<br>- Customer satisfaction scores (NPS).<br>- Lead-to-customer conversion rate. | **Streamline your hiring process with integrated skills assessments. Go from application to qualified candidate faster.** |
+
+| Unfair Advantage                        | Channels                                                              | Customer Segments                                           | Cost Structure                                                              |
+| --------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------- |
+| - Deep integration with a wide range of popular ATS platforms.<br>- A large and customizable library of pre-built skills assessments.<br>- First-mover advantage in this specific niche. | - Direct sales to HR departments.<br>- Partnerships with ATS providers.<br>- Online marketing (SEO, SEM).<br>- Content marketing (blogs, webinars) about recruitment best practices. | - Corporate recruiters and hiring managers.<br>- HR departments in mid-to-large sized companies.<br>- Staffing and recruitment agencies. | - Software development and maintenance.<br>- Salaries for sales, support, and development teams.<br>- Marketing and advertising costs.<br>- Cloud hosting and infrastructure (servers, databases). |
+
+| Revenue Streams                                                       |
+| --------------------------------------------------------------------- |
+| - Subscription-based model (SaaS) with tiers based on the number of users or assessments (e.g., Basic, Pro, Enterprise).<br>- One-time setup fees for custom integrations.<br>- Paid access to premium assessment libraries. |
