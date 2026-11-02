@@ -1,0 +1,243 @@
+A la hora de empezar un nuevo proyecto de software (o una nueva funcionalidad), se dan una serie de pasos esenciales para garantizar que construimos aquello que el negocio necesita y por tanto el desarrollo sea un éxito. 
+
+Hemos llamado a esta etapa definición y diseño del sistema.
+
+De hecho, con el auge de los asistentes IA, esta etapa será cada vez más y más relevante, ya que se requiere de habilidades que la IA no es capaz de replicar, como la capacidad de análisis, toma de decisiones con contexto limitado, colaboración con perfiles multidisciplinares, creatividad...Además, hay poco de trabajo repetitivo o tedioso (sobre todo en proyectos nuevos), que es donde se le saca más partido a estos asistentes.
+
+Sin embargo, sí que nos puede ayudar bastante, tanto a confrontar ideas, como a traer buenas prácticas, y sobre todo a documentar aquellas decisiones que vamos tomando, un aspecto crítico para la continuidad del proyecto, y que normalmente, por falta de tiempo, omitimos.
+
+Algunos de los pasos o tareas clave de esta etapa:
+
+
+
+1 Investigación y análisis de requisitos
+
+Apoyados en un conocimiento profundo del negocio y el producto, se comienza por entender las necesidades del cliente. Esto puede implicar investigar productos competidores o sustitutivos, entrevistar a diferentes personas o hacer estudios de mercado.
+
+Con esta información se definen los requisitos que tendrá el sistema, tanto funcionales como no funcionales.  
+
+Éste es un trabajo a caballo entre producto y tecnología que no nos puede resultar ajeno. Cada vez será más importante adaptar nuestro rol de Software Engineer a Product Engineer, especialmente en entornos de alta incertidumbre donde las metodologías Lean Startup y Agile cobran mucho más sentido. 
+
+En cualquier de los casos, adquirir ese conocimiento  de producto y de negocio es fundamental: entender las características principales del software o funcionalidad que vamos a crear, cómo impacta en el día a día de nuestro cliente, y cómo monetizamos ese valor aportado, es un paso previo indispensable para cualquier miembro de un equipo de software. 
+
+Además, entender este contexto, la solución actual y los desarrollos planeados nos ayudará a visualizar futuras mejoras al sistema y ayudarnos a innovar (ej. automatizar un proceso manual frecuente, incorporar una nueva librería de pagos más efectiva y robusta...).
+¿Cómo lo conseguimos apoyados en IA?
+
+Más allá del conocimiento interno de la organización, a nuestro alcance a través de documentación o de reuniones con compañeros, los asistentes nos pueden ayudar a obtener contexto general. Nos ahorrarán mucho tiempo navegando por internet, ya que consolida en una sola respuesta la información que estamos buscando.
+
+Para ello, podemos realizar preguntas de discovery sencillas alrededor del dominio o caso de uso. Pongamos como ejemplo un sistema de reserva de vuelos (aunque aplica igual a cualquier otro caso, como un data privacy vault, una aplicación de movilidad tipo Uber, etc).
+
+Lo primero, tengamos en cuenta el contexto, demos un rol específico, detallemos el tipo de respuesta que esperamos, etc. 
+
+    Recuerda que, con un buen prompt, podemos tener a un experto en cualquier disciplina o area de negocio. 
+
+Dejaremos el ejemplo para el primer prompt, para el resto solo indicaremos la pregunta, puedes usar una construcción similar o continuar el proceso en la misma conversación:
+
+    Eres un experto en producto, con experiencia en [sistemas de reserva de vuelos].
+    ¿Qué funcionalidades básicas tiene un [sistema de reserva de vuelos]?
+    Descríbemelas en un listado, ordenado de mayor a menor prioridad
+
+    ¿Qué beneficios obtiene el cliente de un [sistema de reserva de vuelos] para considerar su uso?
+
+    ¿Qué alternativas tiene a usar un [sistema de reserva de vuelos] y cuando pueden ser relevantes?
+
+    ¿Cómo es el customer journey normal de un cliente que usa un [sistema de reserva de vuelos]? Descríbeme paso a paso todas las interacciones
+
+Puedes encontrar la conversación completa en el siguiente enlace:
+
+🔗Funcionalidades básicas reserva vuelos (chatgpt.com)
+
+    La decisión buy vs build es estratégica
+
+En el mundo real, antes de empezar a construir todo de 0, siempre evaluamos cómo se ajustan los productos disponibles a nuestras necesidades. Si alguno de ellos cumple con la mayoría o todos nuestros requisitos, lo utilizamos directamente, ya sea desplegando una nueva instancia (open source) o adquiriendo una licencia de un producto comercial (SaaS).
+
+Esta estrategia nos permite ofrecer valor al negocio de manera mucho más rápida, sin necesidad de desarrollar desde cero componentes o funcionalidades que son commodity. Así se libera capacidad en el equipo para centrarse en el core del negocio, aquello que aporta un valor diferencial en el mercado.
+
+En el ejemplo anterior del sistema de reserva de vuelos, la disponibilidad del mayor número de proveedores, y la velocidad de carga de los resultados, son algunos de los aspectos clave que nos diferenciarán en un mercado muy competitivo. 
+
+Respecto al número de proveedores, no es trabajo directo del equipo de IT, pero podemos apoyar con automatizaciones en el proceso de contacto con aerolíneas y agencias de viajes, durante la ingesta y actualización de los datos, etc. Respecto a la velocidad de carga, sí que estará bajo nuestro control optimizar la integración con los proveedores y manejar adecuadamente el flujo de información (tiempo real vs intervalos, cache vs bbdd, tipo de base de datos, localización de los servidores...)
+
+Otros aspectos son secundarios, como el sistema de envío de emails o el de generación de facturas. Aspectos que requiere casi cualquier empresa de cualquier industria, y por tanto donde podemos encontrar soluciones robustas y confiables que hagan el trabajo, tanto open source como de pago.
+
+Por tanto, algunas preguntas que se pueden hacer antes de empezar a construir serían:
+
+    ¿Qué [sistemas de reserva de vuelos] open source son más conocidos?
+
+    ¿Qué [sistemas de reserva de vuelos] comerciales son más conocidos? Compáralos en función de [funcionalidades a,b,c] y valora cuál sería mejor opción
+
+E investigar a partir de aquí las respectivas opciones en su web pública, repositorio, etc.
+
+Como has visto, en esta fase inicial, donde prima el aprendizaje, los asistentes de IA pueden ser muy útiles. Independientemente del contexto previo que ya tengas sobre tu industria, tu producto o tu cliente, o de la disponibilidad de información en tu compañía, vas a poder obtener información relevante, ideas y alternativas, un buen sustrato para aportar mucho más valor y participar activamente en las siguientes etapas.
+
+2 Definición de casos de uso
+
+Una vez tenemos claros los requisitos del producto o funcionalidad a diseñar, toca bajar en el nivel de abstracción: Identificar los diferentes roles de usuarios que interactuarán con nuestro software, las acciones que cada uno de ellos realizarán en el sistema, las dependencias de unas acciones con otras (comprar requiere registrarse, acceder a mi perfil requiere autenticarse...). 
+
+    Los casos de uso ayudan a comprender cómo interactuarán los usuarios con el software y a definir los principales escenarios de uso
+
+La tarea de definir los casos de uso recae sobre analistas o product managers/owners, profesionales que conocen todo el contexto descrito anteriormente y saben describir textual y gráficamente los casos de uso. De esta manera, quedan como referencia de funcionamiento del sistema y sirven al equipo de software para implementarlos.
+
+Volviendo al ejemplo del sistema de reserva de vuelos, podemos tener claros algunos casos de uso evidentes, como buscar vuelos, reservarlos, o pagar. Pero quizá no. Igualmente, podemos encontrar otros casos no tan claros con la ayuda de nuestro buddy IA, así como refinar aquellos que ya están definidos para entender todo lo que será necesario implementar, desde los atributos del modelo de datos a la secuencia de navegación que se seguirá.
+
+Un prompt de ejemplo podría ser:
+
+    Eres un analista de software experto. Estoy construyendo un sistema de reserva de vuelos online. Enumera y describe brevemente los casos de uso más importantes a implementar para lograr una funcionalidad básica
+
+Que nos debería devolver casos de uso similares a los presentados en el siguiente diagrama UML:
+
+
+Por supuesto, como en cualquier interacción con asistentes, conviene recordar en este punto que tenemos que saber un mínimo de cómo funcionan los casos de uso para poder entender, y sobre todo corregir, los resultados. Para aprender estos básicos también funcionan muy bien los asistentes, pero ya se ha repetido anteriormente.
+
+En el ejemplo anterior, la primera vez que pedimos el diagrama UML usando el prompt:
+
+    Representa estos casos de uso en el tipo de diagrama más adecuado usando el formato plantUML. Diferencia entre usuarios visitantes y usuarios logueados. Acorde a la sintaxis y buenas prácticas UML, define y describe lo que sea necesario. 
+
+Había varios errores que pudimos detectar gracias a conocer de manera básica el funcionamiento de las diferentes relaciones UML, y el contexto de negocio de las reservas de vuelos online:
+
+    Las relaciones <<include>> eran erróneas, se habían definido como <<extend>>
+    El usuario visitante no se había vinculado con el caso de uso "Iniciar Sesión"
+    Faltaba el servicio de atención al cliente, descrito en texto pero no diagramado
+
+Lo pedimos de nuevo, pero no hubiera sido muy laborioso terminar de corregirlo directamente en el diagrama. Es importante saber identificar cuando dejar de usarlo y saltar al modo manual para exprimir a fondo la productividad.
+
+Los casos de uso son muy útiles para empezar a identificar roles, acciones y datos necesarios para que el sistema cumpla los objetivos del negocio. Sin embargo, como se verá al final de la sección, en entornos de innovación o donde se requiere agilidad, el software se crea de manera iterativa y en función del feedback del cliente. 
+
+Por tanto, de nada sirve fantasear y definir cientos de casos de uso si al final será ese feedback el que dicte qué hará el equipo de software en los siguientes días o semanas. Pasar de una metodología en cascada (waterfall) a lean/agile implica definir sólo aquellos casos de uso total y absolutamente necesarios, y continuar con otros solo cuando se ha validado que han dado resultados positivos. 
+
+3 Modelado de datos
+
+Las aplicaciones (web/movil/APIs) no dejan de ser interfaces de manipulación de datos. La base de datos es, por tanto, una de las areas clave del software. Entender las entidades que van a jugar un papel relevante, cómo se relacionan y qué información debemos almacenar de cada una es un paso fundamental en la definición del sistema. Por supuesto, también lo es documentarlo y mantenerlo siempre actualizado.
+¿Cómo nos pueden ayudar los asistentes de IA?
+
+El uso más importante es el de apoyo en la tarea de documentar el modelo de base de datos, pero también es muy útil para ayudar a definir el modelo, y para responder dudas o consultas sobre dicho modelo una vez está creado.
+
+Volvamos al ejemplo del sistema de reservas.
+
+Primero un poco de reflexión y sentido común. Apoyado en el paso anterior, ya deberíamos tener claras 3 entidades que van a ser fundamentales, algunos campos esenciales, y cómo se relacionan entre ellas:
+
+Relación entre Reserva y Vuelo: Una relación muchos a uno, donde cada reserva está asociada a un único vuelo. Esto permite múltiples reservas para un mismo vuelo, cada una con diferentes clientes y detalles de asientos.
+
+Relación entre Reserva y Cliente: Una relación muchos a uno, donde cada reserva está vinculada a un único cliente. Un cliente puede tener múltiples reservas, lo que facilita el seguimiento de los viajes de un cliente en particular a lo largo del tiempo.
+
+Si no hemos trabajado antes en estos sistemas, también podemos lanzar la pregunta zero-shot:
+
+    Eres un arquitecto de software experto. Cuales son las 3 entidades de modelo de datos esenciales en un sistema de reserva de vuelos online? Dame algunos campos esenciales de cada una y cómo se relacionan
+
+En cualquier caso, a partir de aquí podemos preguntar para que nos amplíe o nos ayude a descubrir entidades o campos que habíamos pasado por alto:
+
+    Eres un brillante arquitecto de software. Eres capaz de diseñar, explicar y diagramar los diferentes aspectos de un sistema de software. 
+
+    Estoy construyendo un sistema de reserva de vuelos online. He definido las entidades vuelo, reserva y cliente, con sus campos y relaciones, lo adjunto. 
+
+    Qué otras entidades del modelo de datos son importantes en un sistema de reserva de vuelos online? Dame los campos más importantes de cada una y cómo se relacionan entre entidades.
+
+    (Código diagrama mermaid)
+
+El asistente nos dará otras entidades relevantes como Aerolínea, Aeropuerto, Pago, Tarifa, Equipaje...y actualizará el diagrama.
+
+Una vez hemos definido las principales entidades del modelo de datos, toca pensar en la arquitectura a alto nivel del sistema.
+
+
+
+4 Diseño del sistema y arquitectura de alto nivel
+
+En esta etapa el objetivo es definir la estructura general del sistema, incluyendo la arquitectura de software, la distribución de componentes, la integración de sistemas externos y los patrones de comunicación. Esto ayuda a garantizar que el sistema sea escalable, seguro y fácil de mantener.
+
+Una de las habilidades clave que diferencian a los ingenieros/as senior es su visión de alto nivel de los sistemas. La capacidad para entender un sistema de software al completo, tanto cómo interactúan unas áreas con otras (backend, frontend, DevOps...) como a nivel de componentes dentro del sistema (APIs, autenticación, colas de mensajes, caché, CDNs, logging...). No puedes diseñar un sistema, evolucionar un sistema ya existente, o resolver los problemas de un sistema, sin esta visión.
+
+No es el objetivo de este programa convertirte en un gran arquitecto/a de software, pero dado que consideramos que será esencial para tu desempeño, y nos apoyaremos siempre en buenas prácticas para nuestros ejercicios, nos parece relevante dejarte las mejores referencias que tenemos para que puedas desarrollar esta habilidad por tu cuenta. Lo puedes complementar con el curso de Technology Management de LIDR Academy.
+Patrones de arquitectura
+
+Comenzamos con una breve introducción a la arquitectura de software y a algunos de los patrones más comunes: Modelo-Vista-Controlador (MVC), por capas, Microservicios, Hexagonal, orientada a servicios (SOA), etc.
+
+Si quieres ir más a fondo en algún momento, en este curso completo el gran Manuel Zapata analiza en profundidad y con ejemplos de código algunas de 4 arquitecturas muy relevantes en el software actual:
+
+    Arquitectura por capas
+    Arquitectura de microkernel
+    Arquitectura orientada a eventos
+    Arquitectura de microservicios
+
+Diseño de sistemas
+
+En cuanto al diseño de sistemas a alto nivel, nuestro recurso fetiche es este super-repositorio de github que, con el objetivo de ayudarte a pasar la prueba técnica de roles senior/lead/arquitecto y superiores, condensa todos los patrones, componentes y casos de uso relevantes en cuanto al diseño de sistemas, incluyendo múltiples referencias y lo más importante, ejemplos de casos de uso reales:
+¿Cómo me puede ayudar la IA en la fase de diseño y arquitectura?
+
+En esta fase, los asistentes IA funcionan fundamentalmente como un arquitecto experto en el rol de buddy. Sabiendo los fundamentos de los patrones de arquitectura más usados, de manera básica el uso que tienen los componentes más usados en sistemas de software (caché, CDN, reverse proxy, load balancer, colas...), y nombres de buenas prácticas, frameworks o herramientas open source/comerciales, podremos discutir con nuestro buddy la propuesta de diseño, pedir sugerencias, y una vez estemos satisfechos con el restulado, documentar y diagramar.
+
+Siguiendo con el ejemplo del sistema de reserva de vuelos, este podría ser un diagrama sencillo del sistema siguiendo una arquitectura de microservicios:
+
+(Extra) Documentación
+
+Durante todas las etapas es esencial registrar la información coleccionada, y las decisiones tomadas. La documentación en esta fase juega un papel fundamental, desde los requisitos funcionales y no funcionales en la etapa de análisis, hasta los diagramas de arquitectura o los casos de uso más importantes.  Igual de importante es actualizar esta información según la aplicación vaya evolucionando. 
+
+Si utilizamos formatos estándar para la documentación (.md) y los diagramas (mermaid, uml), es relativamente fácil actualizar la información para que se mantenga vigente por medio de asistentes de IA. Simplemente hay que compartir la versión actual, y detallar los cambios realizados, bien en lenguaje natural, bien copiando y pegando directamente desde el código o el gestor de BBDD. El objetivo siempre es usar los artefactos y contenidos ya generados para evitar re-escribir todo lo posible. Esto aplica también a las siguientes fases, como por ejemplo usar los criterios de aceptación de una historia de usuario para pedir los tests unitarios.
+Artefactos de documentación relevantes
+
+Te presentamos a continuación algunos artefactos ampliamente usados en empresas y proyectos de software. Son muy útiles porque atacan necesidades específicas y casos comunes, te conviene saber sobre ellos y cómo usarlos a futuro. Te damos su nombre, algunos detalles básicos y nuestras referencias recomendadas para que puedas comenzar una exploración más a fondo desde el recurso apropiado.
+
+Diagramas C4
+
+El diagrama C4 (Context, Containers, Components, Code) es un modelo para visualizar la arquitectura de sistemas de software. Desarrollado por Simon Brown, el modelo C4 se enfoca en descomponer la arquitectura de un sistema en diferentes niveles de abstracción, cada uno de los cuales está dirigido a un público específico. 
+
+Estos niveles son:
+
+    Contexto: Muestra el sistema completo en el contexto de su entorno, incluyendo otros sistemas, actores y entidades externas. Este diagrama proporciona una vista de alto nivel de cómo el sistema interactúa con sus partes interesadas y otros sistemas.
+
+    Contenedores: Descompone el sistema en varios contenedores (aplicaciones, servicios de datos, etc.), mostrando la tecnología principal y cómo se comunican estos contenedores.
+
+    Componentes: Se adentra en un contenedor específico para mostrar los componentes o bloques de construcción principales y sus interacciones.
+
+    Código: El nivel más detallado, muestra cómo están implementados los componentes a nivel de clases o, en algunos casos, de funciones.
+
+El diagrama C4 es esencial para proporcionar una visión integral de la arquitectura de software, mostrando distintos niveles de abstracción (desde la interacción global del sistema con su entorno hasta los detalles de implementación a nivel de código). Este modelo facilita una comunicación efectiva y clara dentro de los equipos de desarrollo y con las partes interesadas, asegurando que todos comprendan cómo está estructurado el sistema y cómo se relaciona con otros sistemas o entidades externas. Al ofrecer esta visión integral, el diagrama C4 ayuda a mantener una documentación coherente y estructurada, lo que es crucial para la consistencia en la arquitectura y la compartición de conocimiento.
+
+Además, al visualizar la arquitectura a varios niveles, los diagramas C4 permiten a los equipos de desarrollo tomar decisiones informadas sobre el diseño y la implementación, anticipando cómo las modificaciones afectarán al sistema. Esto es vital para la planificación de la escalabilidad y el mantenimiento, y también ofrece una herramienta muy efectiva para la rápida integración de nuevos desarrolladores, quienes pueden entender rápidamente el sistema y contribuir desde el principio. 
+
+Para saber más sobre los diagramas C4, aquí tienes un artículo donde encontrarás todo lo que necesitas: un ejemplo muy claro de todas las ventajas que aporta un diagrama con varios niveles de zoom, explicación clara y visual de cada uno de los niveles, y herramientas para integrarlos en tu flujo diario, tanto en IDE como en Git:
+
+Architecture Decision Record (ADR)
+
+Un ADR (Architecture Decision Record) es un documento que captura una decisión importante relacionada con la arquitectura de software, junto con su contexto y las consecuencias de esta decisión. Los ADRs son esenciales para documentar el razonamiento detrás de elecciones significativas que afectan la estructura y el comportamiento de un sistema, tales como la elección de tecnologías (lenguajes de programación, frameworks, librerías...), estructuras de datos, interfaces de comunicación, etc.
+
+Es importante registrar estas decisiones por varias razones:
+
+1. Claridad en la Toma de Decisiones: Un ADR proporciona un registro claro y estructurado de las decisiones tomadas, asegurando que todos los miembros del equipo y partes interesadas entiendan el "por qué" detrás de ciertas elecciones arquitectónicas. Esto es crucial para la alineación y el consenso dentro de un equipo de desarrollo.
+
+2. Mejora la Comunicación: Los ADRs facilitan la comunicación entre los diferentes stakeholders del proyecto, desde desarrolladores y arquitectos hasta directores o incluso  clientes. Esto ayuda a evitar malentendidos y asegura que las decisiones son transparentes para todos.
+
+3. Transferencia de conocimiento: Documentar decisiones ayuda a preservar el conocimiento dentro de la organización, lo que es especialmente valioso cuando se enfrentan cambios en el equipo. Los nuevos miembros pueden entender rápidamente las decisiones pasadas y la lógica detrás de la arquitectura actual del sistema.
+
+4. Consistencia y Reusabilidad: Con registros claros y accesibles de decisiones anteriores, los equipos pueden asegurar consistencia en la arquitectura a lo largo del tiempo y reutilizar enfoques exitosos en proyectos futuros. Esto reduce el riesgo de repetir errores anteriores o reinventar soluciones a problemas ya resueltos.
+
+5. Fundamentación para Revisiones y Cambios: Un ADR proporciona un marco de referencia que puede ser muy valioso durante revisiones de código y refactoring. Entender las decisiones originales permite a los equipos evaluar si esas decisiones siguen siendo válidas y facilita el proceso de hacer ajustes basados en cambios en los requisitos o en el entorno tecnológico.
+
+Como ves, los ADRs son una herramienta muy poderosa para gestionar la arquitectura de software. No solo ayudan a justificar decisiones pasadas, también guían el desarrollo futuro, asegurando que las decisiones sean coherentes a lo largo del tiempo, estén bien comunicadas y se repitan patrones de éxito.
+
+Si quieres saber más, la documentación de Github es la biblia de los ADRs. No solo por el contenido y la explicación, también por los enlaces a otros recursos, como plantillas para diferentes casos típicos (elegir proveedor cloud, sistema de base de datos, monorepo vs multirepo, microservicios vs monolito...).
+
+Diferencias en entornos de alta incertidumbre
+
+En el caso de las startups o productos nuevos, esta etapa de definición y diseño del sistema es muy diferente, debido a que hay mucha más incertidumbre. Por tanto, no se enfoca en obtener la máxima información disponible del mercado o los clientes, ya que normalmente no es accesible. En estos casos, el foco está en iterar rápidamente, validando hipótesis. 
+
+En lugar de definir requisitos detallados, la aproximación es diferente: se formulan hipótesis sobre el problema a resolver, las soluciones potenciales y los resultados esperados. Estas hipótesis sirven como punto de partida para el diseño y desarrollo del producto.
+
+    El objetivo en Lean Startup es aprender
+
+A partir de aquí, se priorizan las características mínimas necesarias para abordar el problema identificado y se desarrolla un MVP (Minimum Viable Product) funcional. El objetivo es obtener feedback rápido de los usuarios, y a partir de ahí iterar y mejorar el producto, o buscar otras vías. Si es posible, se realiza con herramientas no/ low-code para aumentar la velocidad y reducir el coste. 
+
+Es decir, que en lugar de definir todos los casos de uso posibles, un modelo de datos completo, o una arquitectura robusta y escalable desde el día 0, se trocea en incrementos de valor, intentando aportar siempre el máximo valor posible en intervalos de tiempo muy cortos. Un solo caso de uso, con el mínimo modelo de datos necesario, y con el requisito fundamental de que funcione, aunque haya que "tirarlo" una vez validado. El mayor valor entregado con la menor cantidad de funciones posible:
+
+Si quieres profundizar sobre Lean Startup, validación de hipótesis, uso de herramientas no-code, y desarrollar la mentalidad de producto que tan relevante será en los próximos años, puedes visitar nuestro curso Business Vision, disponible en LIDR Academy.
+
+
+
+Conclusiones
+
+Esperamos que hayas obtenido inspiración de algunas de las principales tareas a realizar antes de cualquier desarrollo de software, ya sea comenzar de 0 o agregar una nueva funcionalidad. 
+
+Como ya hemos dicho, esta etapa será cada vez más relevante, una vez las tareas más repetitivas y tediosas de la programación sean realizadas con el apoyo de (o enteramente por) asistentes de IA.
+
+Será nuestra responsabilidad como ingenieros dedicar nuestras capacidades y tiempo a resolver problemas complejos, investigar, analizar, tomar decisiones, valorar diferentes opiniones y puntos de vista, aplicar el espíritu crítico, y poder trabajar en diferentes planos de abstracción. 
+
+¡Ahora te toca a ti poner en práctica lo aprendido!
+

@@ -1,0 +1,20 @@
+Generar diagramas con IA
+
+Una vez hecha la introducción, veamos lo relevante: cómo apoyarnos en herramientas de IA para acelerar la creación y modificación de diagramas. Te presentamos 2 opciones, más y menos automatizada:
+1. Diagramming-as-a-Service
+
+Ya hay servicios online que hacen la traducción directa de un prompt a un diagrama, ya sea en UML o Mermaid, o en imagen o formatos propietarios:
+
+    DiagrammingAI (🔗 AI - Instantly Design UML & Workflows with AI)
+    Permite generar diagramas en UML, Mermaid o Graphviz a partir de un prompt, y personalizar o editar luego cualquier aspecto sin necesidad de seguir tocando el prompt.
+    
+     ChatUML (🔗 AI Assisted Diagram Generator)
+Herramienta básica para generar diagramas UML a partir de un prompt
+Napkin AI (🔗 Napkin AI - The vistual AI for business storytelling)
+Orientado más a presentaciones, documentación de negocio y redes sociales, Napkin permite generar diagramas a partir de cualquier texto. De hecho, se integra con las herramientas más usadas como Notion, Office o Google Docs, así que no necesita un prompt específico, sólo seleccionar el texto que se desea convertir a diagrama. Genera diagramas de flujo, pero también mindmaps, gráficos de datos, circulares o secuencias, funnels, e infografías completas. Una vez creado puedes adaptarlo y personalizarlo totalmente a tu gusto.
+
+     DiagramGPT (🔗 DiagramGPT - AI Diagram Generator)
+
+    Esta herramienta está entrenada para detectar el mejor tipo de diagrama acorde al prompt, y más allá de entidad-relación, flujos y secuencias, lo que la hace única es que genera diagramas de infraestructura, lo que la hace especialmente útil para proyectos de software
+
+Estas herramientas suelen tener un coste más allá de la versión gratis limitada, pero a cambio introducen funciones avanzadas como actualización en tiempo real, múltiples colaboradores, generación de diagrama a partir de una imagen, o edición del resultado. Por otra parte, la versión gratuita suele ser suficiente para el trabajo del día a día de un/a desarrollador/a.

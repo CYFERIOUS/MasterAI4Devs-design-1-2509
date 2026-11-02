@@ -1,0 +1,68 @@
+2. De prompt a diagrama con IA
+
+Sin embargo, también existen alternativas gratuitas de visualización y descarga. En este caso, puedes pedir a cualquier asistente IA como ChatGPT o Claude el diagrama en el formato deseado, importarlo en la herramienta de visualización y editarlo ahí o exportar directamente si se corresponde con los requisitos.
+
+Algunas de las herramientas de visualización gratuitas más conocidas son:
+
+    Planttext (🔗UML Editor) para diagramas en formato UML
+    Mermaid Live (🔗Online FlowChart & Diagrams Editor) para mermaid
+    diagrams.net (antiguo 🔗draw.io) que usa un formato propio XML. 
+
+Incluso si quieres usar la librería Diagrams, podrías pedirle al asistente de IA que te devuelva el código y solo tendrás que ejecutarlo para obtener la imagen.
+
+Dado que más arriba se ha mostrado un prompt de ejemplo para pedir diagramas UML o Mermaid a cualquier asistente IA, en este caso haremos un ejemplo con la librería python Diagrams. Se aplicaría igual al resto de casos, incluyendo drawio:
+
+
+Ejemplo 1: ChatGPT
+
+ChatGPT conoce esta biblioteca, así que solo tienes que pedirle explícitamente que lo genere usando su lenguaje:
+
+Eres un experto programador en python. Dame el código python para visualizar un diagrama en el formato de Diagrams (🔗Diagram as Code) que responda a lo siguiente:
+
+Genera un diagrama de interacción de microservicios que se usan para una venta,  la venta ingresa por el servicio de core el cual envia una mensaje a una cola en redis donde el microservicio de sales la procesa, este microservicio se conecta con el microservicio de products para consultar informacion del producto, luego de tener la informacion del producto guarda la venta y envia una peticion al microservicio de movement donde se mueven los saldos del usuario
+
+No necesito instrucciones de instalacion ni uso, solo el código.
+
+from diagrams import Diagram, Cluster
+from diagrams.onprem.queue import Kafka
+from diagrams.onprem.database import PostgreSQL
+from diagrams.onprem.inmemory import Redis
+from diagrams.onprem.client import User
+from diagrams.generic.device import Mobile
+from diagrams.generic.place import Datacenter
+from diagrams.onprem.compute import Server
+from diagrams.saas.chat import Slack
+from diagrams.programming.framework import Spring
+from diagrams.programming.language import Python
+from diagrams.programming.language import NodeJS
+from diagrams.custom import Custom
+
+with Diagram("Microservicios de Venta", show=False):    
+    usuario = User("usuario")
+
+    with Cluster("Core API"):
+        core_api = Spring("servicio de core")
+
+    with Cluster("Cola de Mensajes"):
+        cola_redis = Redis("cola en Redis")
+
+    with Cluster("Microservicios"):
+        servicio_ventas = Spring("servicio de ventas")
+        servicio_productos = Spring("servicio de productos")
+        servicio_movimientos = Spring("servicio de movimientos")
+
+    usuario >> core_api >> cola_redis >> servicio_ventas
+    servicio_ventas >> servicio_productos
+    servicio_productos >> servicio_ventas >> servicio_movimientos
+    
+    
+    Ejemplo 2: Cursor
+
+Cursor tiene un sistema avanzado de gestión de documentación, que me permite importar documentación en diversos formatos, desde un pdf a un link web, con los que darle contexto más específico que el de su entrenamiento. Además, este sistema permite darle el contenido más actualizado disponible, evitando problemas de versionado o sintaxis deprecada.
+
+Añadiendo la documentación de Diagrams a cursor y pidiéndole los requisitos, me devuelve el código en python que a su vez la librería puede generar gráficamente. Así que serían 3 pasos:
+
+    Petición en lenguaje natural a Cursor usando el prompt de arriba
+    traducción a python usando la documentacion de Diagrams (automático)
+    traducción a imagen ejecutando el código
+

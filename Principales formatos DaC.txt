@@ -1,0 +1,22 @@
+Principales formatos DaC para ingeniería de software
+
+Aquí tienes algunos de los principales formatos y herramientas que te permiten crear diagramas como código:
+
+
+1. PlantUML
+
+PlantUML es uno de los formatos más populares para crear diversos tipos de diagramas como diagramas de secuencia, de casos de uso, de clases, de actividades o de componentes, entre otros, utilizando un lenguaje de marcado simple. PlantUML se integra bien con herramientas de documentación como Markdown. Es el más versátil, ya que permite hacer multitud de diagramas diferentes, pero por ello su sintaxis es más compleja de aprender.
+
+Ejemplo de prompt, sintaxis PlantUML y diagrama asociado: 
+
+    Dame un ejemplo de un diagrama de secuencia en plant uml de una app de transporte similar a Uber
+    
+    2. Mermaid
+
+Mermaid es como una versión simplificada de PlantUML. Permite crear diagramas de flujo, diagramas de secuencia, diagramas de clase, y diagramas de Gantt, entre otros, con una sintaxis más sencilla, haciéndolo más fácil de usar. Además, no requiere de una herramienta de renderizado, sino que se integra directamente con contenido markdown, por lo que se ha vuelto muy popular en entornos que utilizan GitHub o GitLab, ya que mantiene toda la información centralizada (código + documentación + diagramas) en lugar de tener los diagramas dispersos por herramientas como diagrams.net, carpetas de Drive, etc.
+
+Aquí se muestra el diagrama de secuencia anterior en mermaid:
+
+3. Diagrams (librería Python)
+
+La biblioteca "Diagrams" en Python permite crear diagramas de arquitectura de nube y otros tipos de diagramas utilizando Python. Esto significa que puedes usar código Python para definir los elementos de tu diagrama, lo cual es una gran ventaja si ya estás familiarizado con este lenguaje. Soporta varios proveedores de nube como AWS, Azure, GCP, Kubernetes, entre otros.

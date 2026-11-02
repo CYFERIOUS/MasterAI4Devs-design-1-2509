@@ -1,0 +1,16 @@
+Introducción a Diagrams as Code (DaC)
+
+Los diagramas son una parte esencial en la documentación de proyectos de software, tanto para definir el alcance, requisitos, modo de funcionamiento...como a la hora de planificar e iterar el proyecto, además de ser muy útiles para presentarlo a otros departamentos y a negocio. Permiten comunicar ideas complejas de forma clara.
+
+Los "diagramas como código" (diagrams as code o DaC por sus siglas en inglés) son una técnica en la cual utilizas texto y código para generar visualizaciones de arquitecturas, flujos de trabajo, y otros tipos de diagramas. Esta práctica permite a los desarrolladores e ingenieros documentar y diseñar sistemas de manera eficiente, versionable, y automatizable.
+
+Beneficios de DaC:
+
+    Versionado: Puedes mantener tus diagramas versionados junto con tu código.
+    Automatización: Facilita la generación automática de documentación y la actualización de diagramas.
+    Colaboración: Mejora la colaboración en equipo al facilitar la revisión y el intercambio de diagramas a través de herramientas de control de versiones.
+
+Algunos de los diagramas ampliamente utilizados en software y susceptibles de convertirse en DaC son:
+
+1. Modelo de datos (diagrama entidad-relación)
+Muestran la estructura de bases de datos: tablas, relaciones y cardinalidades.
